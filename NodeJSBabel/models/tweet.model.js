@@ -10,7 +10,7 @@ const Tweet = mongoose.model('Tweet', {
 });
 
 function list() {
-  console.log('hola desde model');
+  console.log('hola desde tweet model');
   return Tweet.find();
 }
 
