@@ -1,8 +1,7 @@
+const tweetModel = require('../models/tweet.model');
+
 function list() {
-  const array = [];
-  return new Promise((resolve) => {
-    resolve();
-  });
+  return tweetModel.list();
 }
 
 module.exports = {
