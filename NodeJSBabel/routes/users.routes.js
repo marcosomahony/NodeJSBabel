@@ -9,4 +9,12 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+router.route('/:name')
+  .get((req, res, next) => {
+    const name = req.params.name; // eslint-disable-line prefer-destructuring
+    return ctrl.get(name)
+      .then(res.json.bind(res))
+      .catch(next);
+  });
+
 module.exports = router;

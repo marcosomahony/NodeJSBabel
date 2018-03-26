@@ -11,6 +11,10 @@ function list() {
   return User.find();
 }
 
+function get(param) {
+  return User.find({ name: param });
+}
+
 module.exports = {
-  list,
+  list, get,
 };

@@ -1,0 +1,14 @@
+API para leer twits.
+
+En base de datos: 
+    Collection: twits -HECHO
+    Collection: Users   -HECHO
+
+Hay que hacer:
+    Listado de twits: (básicamente usando parámetros de mongo). Esto usa cache (básica). -HECHO (falta la cache)
+        Cuidado con el tamaño: con .limit, luego .skip.
+    Funcionalidad: búsqueda de texto.   -HECHO
+    Funcionalidad: twits por usuario (buscar por @username) 
+    Información de un usuario.  -HECHO
+    Todos los usuarios que han rt un twit.
+        Cuidado con devolver todos los campos: devolver un name y un id.
