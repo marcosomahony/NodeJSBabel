@@ -17,6 +17,7 @@ function get(texto) {
   return Tweet.find({ $text: { $search: texto } });
 }
 
+// comprobar
 function prueba(texto) {
   return Tweet.find({ user: texto });
 }
