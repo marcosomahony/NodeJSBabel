@@ -4,6 +4,10 @@ function list() {
   return tweetModel.list();
 }
 
+function get(text) {
+  return tweetModel.get(text);
+}
+
 module.exports = {
-  list,
+  list, get,
 };
