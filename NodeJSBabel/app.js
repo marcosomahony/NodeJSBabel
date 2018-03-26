@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/test');
 
-const router = require('./routes/routes');
+const tweetsRouter = require('./routes/tweets.routes');
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/tweets', router);
+app.use('/tweets', tweetsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -1,4 +1,4 @@
-const ctrl = require('../controllers/controller');
+const ctrl = require('../controllers/tweets.controller');
 const express = require('express');
 
 const router = express.Router();
