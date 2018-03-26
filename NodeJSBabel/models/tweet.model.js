@@ -17,6 +17,10 @@ function get(texto) {
   return Tweet.find({ $text: { $search: texto } });
 }
 
+function prueba(texto) {
+  return Tweet.find({ user: texto });
+}
+
 module.exports = {
-  list, get,
+  list, get, prueba,
 };

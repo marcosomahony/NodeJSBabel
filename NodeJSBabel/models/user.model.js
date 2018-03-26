@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const tweetModel = require('./tweet.model');
 
 const User = mongoose.model('User', {
   id: Number,
@@ -12,7 +13,7 @@ function list() {
 }
 
 function get(param) {
-  return User.find({ name: param });
+  return tweetModel.prueba(param);
 }
 
 module.exports = {
