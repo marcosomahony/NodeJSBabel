@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const Tweet = mongoose.model('Tweet', {
-  created_at: String,
-  id: Number,
-  id_str: String,
+  created_at: Date,
+  t_id: Number,
+  t_id_str: String,
   text: String,
-  user: {},
+  user_id: String,
   entities: {},
 });
 
@@ -17,11 +17,10 @@ function get(texto) {
   return Tweet.find({ $text: { $search: texto } });
 }
 
-// comprobar
-function prueba(texto) {
-  return Tweet.find({ user: texto });
+function tweetsPorUsuario(id) {
+  return Tweet.find({ user_id: id });
 }
 
 module.exports = {
-  list, get, prueba,
+  list, get, tweetsPorUsuario,
 };

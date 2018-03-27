@@ -10,5 +10,7 @@ Hay que hacer:
     Funcionalidad: búsqueda de texto.   -HECHO
     Funcionalidad: twits por usuario (buscar por @username) 
     Información de un usuario.  -HECHO
-    Todos los usuarios que han rt un twit.
+    Todos los usuarios que han rt un twit: Para el tema de los retweets: Los mismos tweets pero con distintos user_id
         Cuidado con devolver todos los campos: devolver un name y un id.
+
+

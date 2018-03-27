@@ -14,9 +14,10 @@ const app = express();
 
 const cache = {};
 app.get('*', (req, res, next) => {
+  console.log('req', req.url);
   const response = req._response;
   if (cache[req.url]) {
-    console.log('req', req.url);
+    console.log('accediendo a la cache');
     return res.json(cache[req.url]);
   }
   next();

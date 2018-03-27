@@ -9,6 +9,8 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+// users/:id/tweets
+
 router.route('/:name')
   .get((req, res, next) => {
     const name = req.params.name; // eslint-disable-line prefer-destructuring
