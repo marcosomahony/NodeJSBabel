@@ -13,14 +13,13 @@ router.get('/', (req, res, next) => {
 // /tweets (?text='')
 // /tweets/:id/users
 
-/* router.route('/')
+router.route('/:id')
   .get((req, res, next) => {
-    const text = req.query.text; // eslint-disable-line prefer-destructuring
-    console.log('text',text);
-    return ctrl.get(text)
+    const id = req.params.id; // eslint-disable-line prefer-destructuring
+    return ctrl.usersRetweets(id)
       .then(res.json.bind(res))
       .catch(next);
-}); */
+});
 
 
 module.exports = router;

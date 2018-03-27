@@ -23,6 +23,11 @@ function tweetsPorUsuario(id) {
   return Tweet.find({ user_id: id });
 }
 
+function usersRetweets(idParam) {
+  console.log('hola pabo');
+  return Tweet.find({ id_str: idParam }, { user_id: 1, _id: 0 });
+}
+
 module.exports = {
-  list, tweetsPorUsuario,
+  list, tweetsPorUsuario, usersRetweets,
 };

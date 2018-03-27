@@ -4,6 +4,10 @@ function list(text) {
   return tweetModel.list(text);
 }
 
+function usersRetweets(id) {
+  return tweetModel.usersRetweets(id);
+}
+
 module.exports = {
-  list,
+  list, usersRetweets,
 };
