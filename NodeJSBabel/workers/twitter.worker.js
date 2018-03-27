@@ -7,7 +7,7 @@ const client = new Twitter({
   access_token_secret: 'FSGryplp3SSuQusxukhgkro7ssdDfLKHzLkzJCrxcQ1Te',
 });
 
-client.stream('statuses/filter', { track: 'hola', language: 'es' }, (stream) => {
+client.stream('statuses/filter', { track: 'feliz', language: 'es' }, (stream) => {
   stream.on('data', (tweet) => {
     console.log(tweet.text);
   });
