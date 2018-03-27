@@ -1,13 +1,9 @@
 const tweetModel = require('../models/tweet.model');
 
-function list() {
-  return tweetModel.list();
-}
-
-function get(text) {
-  return tweetModel.get(text);
+function list(text) {
+  return tweetModel.list(text);
 }
 
 module.exports = {
-  list, get,
+  list,
 };

@@ -9,12 +9,14 @@ const Tweet = mongoose.model('Tweet', {
   entities: {},
 });
 
-function list() {
-  return Tweet.find();
-}
-
-function get(texto) {
-  return Tweet.find({ $text: { $search: texto } });
+function list(texto) {
+  const query = {};
+  if (texto) {
+    query.$text = {
+      $search: texto,
+    };
+  }
+  return Tweet.find(query);
 }
 
 function tweetsPorUsuario(id) {
@@ -22,5 +24,5 @@ function tweetsPorUsuario(id) {
 }
 
 module.exports = {
-  list, get, tweetsPorUsuario,
+  list, tweetsPorUsuario,
 };
