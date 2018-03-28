@@ -4,10 +4,14 @@ function list(text) {
   return tweetModel.list(text);
 }
 
-function usersRetweets(id) {
-  return tweetModel.usersRetweets(id);
+function tweetsPorUsuario(id) {
+  return tweetModel.tweetsPorUsuario(id);
+}
+
+function usersRetweets(name) {
+  return tweetModel.usersRetweets(name);
 }
 
 module.exports = {
-  list, usersRetweets,
+  list, usersRetweets, tweetsPorUsuario,
 };

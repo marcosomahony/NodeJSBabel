@@ -5,7 +5,7 @@ const Tweet = mongoose.model('Tweet', {
   t_id: Number,
   t_id_str: String,
   text: String,
-  user_id: String,
+  user: {},
   entities: {},
 });
 
@@ -19,8 +19,9 @@ function list(texto) {
   return Tweet.find(query);
 }
 
-function tweetsPorUsuario(id) {
-  return Tweet.find({ user_id: id });
+function tweetsPorUsuario(name) {
+  // por algun motivo ha decidido que no va a imprimir
+  return Tweet.find({ 'user.name': name });
 }
 
 function usersRetweets(idParam) {

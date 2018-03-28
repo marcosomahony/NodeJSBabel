@@ -13,6 +13,12 @@ router.get('/', (req, res, next) => {
 // /tweets (?text='')
 // /tweets/:id/users
 
+router.route('/:name')
+  .get((req, res, next) => {
+    const name = req.params.name; // eslint-disable-line prefer-destructuring
+    return ctrl.tweetsPorUsuario(name);
+  })
+
 router.route('/:id')
   .get((req, res, next) => {
     const id = req.params.id; // eslint-disable-line prefer-destructuring

@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/twitter');
 
 const tweetsRouter = require('./routes/tweets.routes');
 const usersRouter = require('./routes/users.routes');
