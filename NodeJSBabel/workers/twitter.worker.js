@@ -10,31 +10,31 @@ const client = new Twitter({
   access_token_secret: 'FSGryplp3SSuQusxukhgkro7ssdDfLKHzLkzJCrxcQ1Te',
 });
 
-const Package = mongoose.model('Tweet', {
+const tweetSchema = new mongoose.Schema({
   created_at: Date,
-  t_id: Number,
-  t_id_str: String,
+  id: Number,
+  id_str: String,
   text: String,
   user: {},
   entities: {},
-});
+}, { strict: false });
+
+const userSchema = new mongoose.Schema({
+  id: Number,
+  id_str: String,
+  name: String,
+}, { strict: false });  
+
+const Tweet = mongoose.model('Tweet', tweetSchema);
+const User = mongoose.model('User', userSchema);
 
 client.get('favorites/list', (error, tweets) => {
   if (error) throw error;
-  console.log('cantidad de tweets que imprimen los fagoringtos: ', tweets.length);
+  console.log('cantidad de tweets: ', tweets.length);
   tweets.forEach((tweet) => {
-    const pck = new Package(tweet).save(); //eslint-disable-line
+    const pck = new Tweet(tweet).save(); //eslint-disable-line
+    const user = new User(tweet.user).save(); //eslint-disable-line
     console.log(tweet.text);
     console.log('-');
   });
 });
-
-/* client.stream('statuses/filter', { track: 'semana santa', language: 'es' }, (stream) => {
-  stream.on('data', (tweet) => {
-    console.log(tweet.text);
-  });
-
-  stream.on('error', (error) => {
-    console.log(error);
-  });
-}); */

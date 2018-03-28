@@ -16,6 +16,7 @@ function list(texto) {
       $search: texto,
     };
   }
+  console.log(query);
   return Tweet.find(query);
 }
 
