@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   id: Number,
   id_str: String,
   name: String,
-}, { strict: false });  
+}, { strict: false });
 
 const Tweet = mongoose.model('Tweet', tweetSchema);
 const User = mongoose.model('User', userSchema);

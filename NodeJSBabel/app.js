@@ -12,7 +12,7 @@ const usersRouter = require('./routes/users.routes');
 
 const app = express();
 
-const cache = {};
+/* const cache = {};
 app.get('*', (req, res, next) => {
   console.log('req', req.url);
   const response = req._response;
@@ -21,7 +21,7 @@ app.get('*', (req, res, next) => {
     return res.json(cache[req.url]);
   }
   next();
-});
+}); */
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -33,14 +33,14 @@ app.use('/tweets', tweetsRouter);
 app.use('/users', usersRouter);
 
 // metodo de cacheo [no funciona?]
-app.get('*', (req, res, next) => {
+/* app.get('*', (req, res, next) => {
   const response = req._response;
   if (response) {
     cache[req.url] = response;
     return res.json(response);
   }
   next();
-});
+}); */
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
