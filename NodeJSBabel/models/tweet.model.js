@@ -24,8 +24,7 @@ function tweetsPorUsuario(id) {
 }
 
 function usersRetweets(idParam) {
-  console.log('hola pabo');
-  return Tweet.find({ id_str: idParam }, { user_id: 1, _id: 0 });
+  return Tweet.find({ id_str: idParam }, { user_id: 1, _id: 0 }).lean().exec();
 }
 
 module.exports = {

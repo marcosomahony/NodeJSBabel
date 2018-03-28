@@ -19,7 +19,7 @@ router.route('/:id')
     return ctrl.usersRetweets(id)
       .then(res.json.bind(res))
       .catch(next);
-});
+  });
 
 
 module.exports = router;

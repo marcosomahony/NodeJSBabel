@@ -1,4 +1,7 @@
+const mongoose = require('mongoose');
 const Twitter = require('twitter');
+
+mongoose.connect('mongodb://localhost/twitter');
 
 const client = new Twitter({
   consumer_key: 'EnYAtgyj2gw4sLMMGemR2sW0G',
@@ -7,7 +10,26 @@ const client = new Twitter({
   access_token_secret: 'FSGryplp3SSuQusxukhgkro7ssdDfLKHzLkzJCrxcQ1Te',
 });
 
-client.stream('statuses/filter', { track: 'feliz', language: 'es' }, (stream) => {
+const Package = mongoose.model('Tweet', {
+  created_at: Date,
+  t_id: Number,
+  t_id_str: String,
+  text: String,
+  user: {},
+  entities: {},
+});
+
+client.get('favorites/list', (error, tweets) => {
+  if (error) throw error;
+  console.log('cantidad de tweets que imprimen los fagoringtos: ', tweets.length);
+  tweets.forEach((tweet) => {
+    const pck = new Package(tweet).save(); //eslint-disable-line
+    console.log(tweet.text);
+    console.log('-');
+  });
+});
+
+/* client.stream('statuses/filter', { track: 'semana santa', language: 'es' }, (stream) => {
   stream.on('data', (tweet) => {
     console.log(tweet.text);
   });
@@ -15,4 +37,4 @@ client.stream('statuses/filter', { track: 'feliz', language: 'es' }, (stream) =>
   stream.on('error', (error) => {
     console.log(error);
   });
-});
+}); */

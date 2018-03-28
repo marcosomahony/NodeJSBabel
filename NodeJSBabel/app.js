@@ -34,7 +34,6 @@ app.use('/users', usersRouter);
 
 // metodo de cacheo [no funciona?]
 app.get('*', (req, res, next) => {
-  console.log('cacheo');
   const response = req._response;
   if (response) {
     cache[req.url] = response;
